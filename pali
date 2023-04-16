@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class Main {
+    
+
+
+    public static boolean Est_palindrom(String mots) {
+        char[] mots_tabl = mots.toCharArray();
+        int i1 = 0, i2 = mots_tabl.length - 1;
+        while (i2 > i1) {
+            if (mots_tabl[i1] != mots_tabl[i2]) {
+                return false;
+            }
+            i1++;
+            i2--;
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+Scanner sc=new Scanner(System.in);
+            String Paragraph;
+
+            System.out.print(" \n Entrez un paragraphe: \n-->> ");
+            Paragraph = sc.nextLine();
+
+
+            String[] les_mots = Paragraph.split(" ");
+
+            int nb_palindrom = 0;
+            System.out.println("\n");
+            for (String mot5 : les_mots) {
+                if ((mot5.length() == 5) && (Est_palindrom(mot5))) {
+                    nb_palindrom++;
+                    System.out.println("\u001B[32m" + mot5 + " \u001B[0m");
+                }
+            }
+
+            if (nb_palindrom == 0) {
+                System.out.println("\n\n \u001B[31m n'exist pas un mot palindrom de langeur 5 !!!!!!!!!!! \u001B[0m ");
+            }
+
+        
+    }
+}
